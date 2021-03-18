@@ -1,0 +1,53 @@
+float telpmaior = 0.0;
+float cortelpmaior = 0.0;
+float cortelpmaior2 = 0.0;    //variáveis elipse maior
+float cortelpmaior3 = 0.0;
+float transelpmaior = 0.0;
+
+float rmenor = 0.0;
+float gmenor = 0.0;  //variável de cor elipse menor
+float bmenor = 0.0;
+
+float xmenor = 0.0;
+float ymenor = 0.0;
+
+boolean elipseexiste = true; //condição de existência da elipse menor
+
+void setup() {
+
+  size(800, 770); 
+  background(0);    //canvas
+}
+
+void draw() {
+
+  telpmaior+=5.0;
+
+  cortelpmaior+=2.5;
+  cortelpmaior2+=4.5;     //ativação das variáveis
+  cortelpmaior3+=6.5;    
+  transelpmaior+=0.2;
+
+  fill(cortelpmaior%255, cortelpmaior2%255, cortelpmaior3%255, transelpmaior%180);
+  ellipseMode(CENTER); 
+  stroke(cortelpmaior%255, cortelpmaior2%255, cortelpmaior3%255, transelpmaior%180);   //desenho elipse maior
+  ellipse(width/2, height/2, telpmaior%700, telpmaior%700);
+
+  if (elipseexiste==true) {  //condição para elipse menor verdadeira
+
+    xmenor= 400;          //iniciação
+    ymenor= 375;
+    xmenor = xmenor+random(-155, 155);
+    ymenor = ymenor+random(-155, 155);
+    
+    
+    rmenor+=5;
+    gmenor+=10; //variáveis de cor elipse menor
+    bmenor+=15;
+
+    ellipseMode(CENTER);
+    fill(rmenor%255, gmenor%255, bmenor%255, 170); //desenho elipse menor
+    noStroke();
+    ellipse(xmenor, ymenor, 270, 270);
+  }
+}
